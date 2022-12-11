@@ -37,6 +37,7 @@
             this.NewPass = new System.Windows.Forms.Label();
             this.NewPassBox = new System.Windows.Forms.TextBox();
             this.SubmitNewPass = new System.Windows.Forms.Button();
+            this.BackResetButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ResetPassGreeting
@@ -121,12 +122,23 @@
             this.SubmitNewPass.Text = "Change Password";
             this.SubmitNewPass.UseVisualStyleBackColor = true;
             // 
+            // BackResetButton
+            // 
+            this.BackResetButton.Location = new System.Drawing.Point(12, 9);
+            this.BackResetButton.Name = "BackResetButton";
+            this.BackResetButton.Size = new System.Drawing.Size(150, 46);
+            this.BackResetButton.TabIndex = 13;
+            this.BackResetButton.Text = "Back";
+            this.BackResetButton.UseVisualStyleBackColor = true;
+            this.BackResetButton.Click += new System.EventHandler(this.BackResetButton_Click);
+            // 
             // ForgotPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BackResetButton);
             this.Controls.Add(this.SubmitNewPass);
             this.Controls.Add(this.NewPassBox);
             this.Controls.Add(this.NewPass);
@@ -154,5 +166,6 @@
         private Label NewPass;
         private TextBox NewPassBox;
         private Button SubmitNewPass;
+        private Button BackResetButton;
     }
 }

@@ -10,18 +10,23 @@ using System.Windows.Forms;
 
 namespace DatabaseProject
 {
-    public partial class ForgotPassword : Form
+    public partial class CreateAccount : Form
     {
-        public ForgotPassword()
+        public CreateAccount()
         {
             InitializeComponent();
         }
 
-        private void BackResetButton_Click(object sender, EventArgs e)
+        private void BackCreateButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm Login = new LoginForm();
             Login.Show();
+        }
+
+        private void CreateAccount_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

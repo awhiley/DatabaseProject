@@ -42,13 +42,31 @@ namespace DatabaseProject
 
         private void ForgotPassButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            ForgotPassword Forgot = new ForgotPassword();
+            Forgot.Show();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CreateAccButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CreateAccount Create = new CreateAccount();
+            Create.Show();
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            UserInterface UI = new UserInterface();
-            UI.Show();
+            this.Hide();
+            UserInterface User = new UserInterface();
+            /*if(User and Pass == Database) {
+                User.Show();
+            }*/
         }
     }
 }

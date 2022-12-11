@@ -55,7 +55,7 @@
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UsernameLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.UsernameLabel.Location = new System.Drawing.Point(176, 121);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(126, 32);
@@ -73,6 +73,7 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.PasswordLabel.Location = new System.Drawing.Point(386, 121);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(116, 32);
@@ -96,6 +97,7 @@
             this.LoginButton.TabIndex = 5;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // NameLabel
             // 
@@ -128,6 +130,7 @@
             this.CreateAccButton.TabIndex = 8;
             this.CreateAccButton.Text = "Create Account";
             this.CreateAccButton.UseVisualStyleBackColor = true;
+            this.CreateAccButton.Click += new System.EventHandler(this.CreateAccButton_Click);
             // 
             // LoginForm
             // 
@@ -146,7 +149,7 @@
             this.Controls.Add(this.GreetingText);
             this.Name = "LoginForm";
             this.Text = "Manager by Samuel Tyler & Zach Vandecar";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
