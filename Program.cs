@@ -1,4 +1,7 @@
+using MySql.Data.MySqlClient;
+
 namespace DatabaseProject
+
 {
     internal static class Program
     {
@@ -12,6 +15,17 @@ namespace DatabaseProject
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm());
+
+
+
+
+
+
+
+
+
+            
+
         }
     }
 }
