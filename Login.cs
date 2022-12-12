@@ -1,10 +1,21 @@
+using MySql.Data.MySqlClient;
+using System.Security.Cryptography.X509Certificates;
+
 namespace DatabaseProject
 {
+    
     public partial class LoginForm : Form
     {
         public LoginForm()
         {
             InitializeComponent();
+
+            string connetionString;
+            MySqlConnection cnn;
+            connetionString = "server=localhost;database=PasswordManager;user=root;password=password1";
+            cnn = new MySqlConnection(connetionString);
+            cnn.Open();
+            MessageBox.Show("Connection Open  !");
         }
 
         private void GreetingText_Click(object sender, EventArgs e)
@@ -15,7 +26,8 @@ namespace DatabaseProject
         private void UsernameBox_TextChanged(object sender, EventArgs e)
         {
            string username = UsernameBox.Text;
-
+           
+           
             /*if (username == database call) {
 
             }*/
@@ -59,14 +71,42 @@ namespace DatabaseProject
             Create.Show();
 
         }
+       
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             UserInterface User = new UserInterface();
-            /*if(User and Pass == Database) {
-                User.Show();
-            }*/
+
+
+
+
+            string connetionString;
+            MySqlConnection cnn;
+            connetionString = "server=localhost;database=PasswordManager;user=root;password=password1";
+            cnn = new MySqlConnection(connetionString);
+            cnn.Open();
+
+
+
+            string query = "Select u_password from User where u_username = '" + UsernameBox.Text + "'";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            string password = cmd.ExecuteScalar().ToString();
+
+
+                              
+            if (PasswordBox.Text ==  password)
+            {
+
+
+                   User.Show(); //only go to next page if login is valid
+                //it works enough, and also doesnt work enough.
+                //trust me
+
+              
+            }
+           
+
         }
     }
 }

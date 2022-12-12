@@ -43,6 +43,8 @@
             this.UsernameChange = new System.Windows.Forms.TextBox();
             this.IDInputModify = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -151,6 +153,7 @@
             this.DeleteButton.TabIndex = 9;
             this.DeleteButton.Text = "Delete Entry";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // PasswordChange
             // 
@@ -202,6 +205,29 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Modify";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(590, 33);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(234, 27);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = "Authorization Password";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(590, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(234, 27);
+            this.textBox2.TabIndex = 16;
+            this.textBox2.Text = "Authorization Username";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // UserInterface
             // 
@@ -209,6 +235,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(873, 518);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.PasswordChange);
             this.Controls.Add(this.EmailChange);
             this.Controls.Add(this.UsernameChange);
@@ -249,5 +277,7 @@
         private TextBox UsernameChange;
         private TextBox IDInputModify;
         private Button button1;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
