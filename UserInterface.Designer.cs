@@ -45,6 +45,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -83,7 +86,7 @@
             // 
             // AddEntry
             // 
-            this.AddEntry.Location = new System.Drawing.Point(74, 482);
+            this.AddEntry.Location = new System.Drawing.Point(186, 470);
             this.AddEntry.Margin = new System.Windows.Forms.Padding(2);
             this.AddEntry.Name = "AddEntry";
             this.AddEntry.Size = new System.Drawing.Size(92, 29);
@@ -97,9 +100,9 @@
             this.WebsiteInput.Location = new System.Drawing.Point(7, 355);
             this.WebsiteInput.Margin = new System.Windows.Forms.Padding(2);
             this.WebsiteInput.Name = "WebsiteInput";
-            this.WebsiteInput.Size = new System.Drawing.Size(234, 27);
+            this.WebsiteInput.Size = new System.Drawing.Size(141, 27);
             this.WebsiteInput.TabIndex = 4;
-            this.WebsiteInput.Text = "Enter Website";
+            this.WebsiteInput.Text = "Enter Website Link";
             this.WebsiteInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WebsiteInput.TextChanged += new System.EventHandler(this.WebsiteInput_TextChanged);
             // 
@@ -108,7 +111,7 @@
             this.UsernameInput.Location = new System.Drawing.Point(7, 383);
             this.UsernameInput.Margin = new System.Windows.Forms.Padding(2);
             this.UsernameInput.Name = "UsernameInput";
-            this.UsernameInput.Size = new System.Drawing.Size(234, 27);
+            this.UsernameInput.Size = new System.Drawing.Size(257, 27);
             this.UsernameInput.TabIndex = 5;
             this.UsernameInput.Text = "Enter Username (If Applicable)";
             this.UsernameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -118,7 +121,7 @@
             this.EmailInput.Location = new System.Drawing.Point(7, 411);
             this.EmailInput.Margin = new System.Windows.Forms.Padding(2);
             this.EmailInput.Name = "EmailInput";
-            this.EmailInput.Size = new System.Drawing.Size(234, 27);
+            this.EmailInput.Size = new System.Drawing.Size(257, 27);
             this.EmailInput.TabIndex = 6;
             this.EmailInput.Text = "Enter Email (If Applicable)";
             this.EmailInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -128,7 +131,7 @@
             this.PasswordInput.Location = new System.Drawing.Point(7, 439);
             this.PasswordInput.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordInput.Name = "PasswordInput";
-            this.PasswordInput.Size = new System.Drawing.Size(234, 27);
+            this.PasswordInput.Size = new System.Drawing.Size(257, 27);
             this.PasswordInput.TabIndex = 7;
             this.PasswordInput.Text = "Enter Password";
             this.PasswordInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -174,6 +177,7 @@
             this.EmailChange.TabIndex = 13;
             this.EmailChange.Text = "Enter New Email";
             this.EmailChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EmailChange.TextChanged += new System.EventHandler(this.EmailChange_TextChanged);
             // 
             // UsernameChange
             // 
@@ -195,10 +199,11 @@
             this.IDInputModify.TabIndex = 11;
             this.IDInputModify.Text = "Enter ID to Modify";
             this.IDInputModify.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IDInputModify.TextChanged += new System.EventHandler(this.IDInputModify_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 482);
+            this.button1.Location = new System.Drawing.Point(774, 472);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 29);
@@ -229,12 +234,48 @@
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(152, 355);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(112, 27);
+            this.textBox3.TabIndex = 17;
+            this.textBox3.Text = "Website Name";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(7, 470);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(175, 27);
+            this.textBox4.TabIndex = 18;
+            this.textBox4.Text = "Enter Phone";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(633, 472);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(124, 27);
+            this.textBox5.TabIndex = 19;
+            this.textBox5.Text = "Enter New Phone";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(873, 518);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.PasswordChange);
@@ -279,5 +320,8 @@
         private Button button1;
         private TextBox textBox1;
         private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
     }
 }
