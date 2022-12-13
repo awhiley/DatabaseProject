@@ -122,5 +122,10 @@ namespace DatabaseProject
         {
 
         }
+
+        private void SecretAnswer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
