@@ -10,4 +10,4 @@ create table LOGIN_INFO (L_ID int not null auto_increment, U_ID int not null, WE
 
 create table WEB_INFO ( WEB_ID int not null auto_increment, WebDomain varchar(100) not null, WebName varchar(50) not null, primary key (Web_ID) );
 
-        
+            

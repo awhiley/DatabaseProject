@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.UserAreaGreeting = new System.Windows.Forms.Label();
             this.AddEntry = new System.Windows.Forms.Button();
             this.WebsiteInput = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.isdisplay = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,16 +62,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "User Area";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(7, 64);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(859, 289);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // UserAreaGreeting
             // 
@@ -267,12 +257,26 @@
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
+            // isdisplay
+            // 
+            this.isdisplay.Location = new System.Drawing.Point(-7, 79);
+            this.isdisplay.Margin = new System.Windows.Forms.Padding(2);
+            this.isdisplay.Multiline = true;
+            this.isdisplay.Name = "isdisplay";
+            this.isdisplay.ReadOnly = true;
+            this.isdisplay.Size = new System.Drawing.Size(873, 272);
+            this.isdisplay.TabIndex = 21;
+            this.isdisplay.Text = "...";
+            this.isdisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.isdisplay.TextChanged += new System.EventHandler(this.isdisplay_TextChanged);
+            // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(873, 518);
+            this.Controls.Add(this.isdisplay);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -291,7 +295,6 @@
             this.Controls.Add(this.WebsiteInput);
             this.Controls.Add(this.AddEntry);
             this.Controls.Add(this.UserAreaGreeting);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserInterface";
@@ -304,7 +307,6 @@
         #endregion
 
         private Label label1;
-        private ListView listView1;
         private Label UserAreaGreeting;
         private Button AddEntry;
         private TextBox WebsiteInput;
@@ -323,5 +325,6 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
+        private TextBox isdisplay;
     }
 }

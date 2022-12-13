@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using System.CodeDom;
 
 namespace DatabaseProject
 {
@@ -31,14 +30,56 @@ namespace DatabaseProject
             cnn.Open();
             MessageBox.Show("Connection Open  !");
 
-            
-            //try to display
-            listView1.Columns.Add("Item Column", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 2", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 3", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 4", -2, HorizontalAlignment.Center);
 
-            
+
+            //  display();
+
+
+
+        }
+
+        public void display()
+        {
+            string connetionString;
+            MySqlConnection cnn;
+            connetionString = "server=localhost;database=PasswordManager;user=root;password=password1";
+            cnn = new MySqlConnection(connetionString);
+            cnn.Open();
+
+            //get number of entries
+            string query = "select count(L_id) from login_info where u_id = " + CurrentUserId;
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            var temp = Convert.ToInt32(cmd.ExecuteScalar());
+
+            int counter = 1;
+
+            query = "select * from login_info where u_id = " + CurrentUserId;
+            cmd = new MySqlCommand(query, cnn);
+
+            MySqlDataReader myReader;
+            myReader = cmd.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                isdisplay.Text =  "\r\n" + "L_id:" + myReader.GetString(0) + ", U_ID:" + myReader.GetString(1) + ", WEB_ID:" + myReader.GetString(2) + ", L_EMAIL:" + myReader.GetString(3) + ", L_PASSWORD:" + myReader.GetString(4) + ", L_PHONE:" + myReader.GetString(5) + ", L_USERNAME:" + myReader.GetString(6) + "\r\n";
+
+
+            }
+            myReader.Close();
+
+            /*
+                while (counter <= temp )
+                {
+
+                    isdisplay.Text = "test";
+
+                    query = "select count(L_id) from login_info where l_id = " + counter;
+                    cmd = new MySqlCommand(query, cnn);
+                    var thig = cmd.ExecuteScalar().ToString();  
+
+
+                }
+            */
 
 
         }
@@ -94,17 +135,17 @@ namespace DatabaseProject
             {
 
                 //add website first
-                query = "insert into WEB_INFO (webdomain, webname ) values ( ' " + WebsiteInput.Text + "' , '" + textBox3.Text + "' ) ";
+                query = "insert into WEB_INFO (webdomain, webname ) values ( '" + WebsiteInput.Text + "' , '" + textBox3.Text + "' ) ";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.ExecuteNonQuery();
 
                 //get web id we just entered
                 query = "select web_id from WEB_INFO where webdomain = '" + WebsiteInput.Text + "' AND webname = '" + textBox3.Text + "'";
                 cmd = new MySqlCommand(query, cnn);
-                var temp = cmd.ExecuteNonQuery();
+                var temp = Convert.ToInt32(cmd.ExecuteScalar());
 
                 //add login info
-                query = "insert into LOGIN_INFO (u_id, web_id, L_email, L_password, L_phone, l_username ) values ( ' " + CurrentUserId + "' , " + temp + ", '" + EmailInput.Text + "' , '" + PasswordInput.Text + "', '" + textBox4.Text + "' , '" + UsernameInput.Text + "' )";
+                query = "insert into LOGIN_INFO (u_id, web_id, L_email, L_password, L_phone, l_username ) values ( '" + CurrentUserId + "' , " + temp + ", '" + EmailInput.Text + "' , '" + PasswordInput.Text + "', '" + textBox4.Text + "' , '" + UsernameInput.Text + "' )";
                 cmd = new MySqlCommand(query, cnn);
                 cmd.ExecuteNonQuery();
             }
@@ -141,8 +182,10 @@ namespace DatabaseProject
                 }
 
 
+
             }
 
+            display();
 
         }
 
@@ -180,9 +223,9 @@ namespace DatabaseProject
             {
 
                 //find web id to delete
-                query = "select web_id from login_info inner join web_info on login_info.web_id = web_info.web_id where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId; 
+                query = "select web_info.web_id from login_info inner join web_info on login_info.web_id = web_info.web_id where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId; 
                 cmd = new MySqlCommand(query, cnn);
-                var temp = cmd.ExecuteScalar();
+                var temp = Convert.ToInt32(cmd.ExecuteScalar());
 
                 //delete entry from login info
                 query = "delete from login_info where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId;
@@ -217,9 +260,9 @@ namespace DatabaseProject
 
 
                     //find web id to delete
-                    query = "select web_id from login_info inner join web_info on login_info.web_id = web_info.web_id where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId;
+                    query = "select web_info.web_id from login_info inner join web_info on login_info.web_id = web_info.web_id where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId;
                     cmd = new MySqlCommand(query, cnn);
-                    var temp = cmd.ExecuteScalar();
+                    var temp = Convert.ToInt32(cmd.ExecuteScalar());
 
                     //delete entry from login info
                     query = "delete from login_info where L_id = " + Convert.ToInt32(IDInputDelete.Text) + " AND u_id = " + CurrentUserId;
@@ -235,6 +278,8 @@ namespace DatabaseProject
 
 
             }
+            display();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -255,7 +300,7 @@ namespace DatabaseProject
                 //modify entry
 
 
-                query = "update login_info set L_EMAIL = '" + EmailChange.Text + "',  L_PASSWORD = '" + PasswordChange.Text + "',  L_PHONE = '" + textBox5.Text + "',  L_USERNAME = '" + UsernameChange.Text + "' where L_ID = " + Convert.ToInt32(IDInputModify.Text) + "AND u_id = " + CurrentUserId;
+                query = "update login_info set L_EMAIL = '" + EmailChange.Text + "',  L_PASSWORD = '" + PasswordChange.Text + "',  L_PHONE = '" + textBox5.Text + "',  L_USERNAME = '" + UsernameChange.Text + "' where L_ID = " + Convert.ToInt32(IDInputModify.Text) + " AND u_id = " + Convert.ToInt32(CurrentUserId);
                 cmd = new MySqlCommand(query, cnn);
                 cmd.ExecuteNonQuery();
 
@@ -293,6 +338,8 @@ namespace DatabaseProject
 
 
             }
+            display();
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -316,6 +363,26 @@ namespace DatabaseProject
         }
 
         private void IDInputModify_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayinfo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayinfo_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isdisplay_TextChanged(object sender, EventArgs e)
         {
 
         }
