@@ -94,7 +94,6 @@ namespace DatabaseProject
             string password = cmd.ExecuteScalar().ToString();
 
 
-                              
             if (PasswordBox.Text ==  password)
             {
 

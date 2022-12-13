@@ -50,8 +50,9 @@ namespace DatabaseProject
             string query = "select count(L_id) from login_info where u_id = " + CurrentUserId;
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             var temp = Convert.ToInt32(cmd.ExecuteScalar());
-
             int counter = 1;
+
+
 
             query = "select * from login_info where u_id = " + CurrentUserId;
             cmd = new MySqlCommand(query, cnn);
@@ -59,9 +60,10 @@ namespace DatabaseProject
             MySqlDataReader myReader;
             myReader = cmd.ExecuteReader();
 
+            isdisplay.Text = "";
             while (myReader.Read())
             {
-                isdisplay.Text =  "\r\n" + "L_id:" + myReader.GetString(0) + ", U_ID:" + myReader.GetString(1) + ", WEB_ID:" + myReader.GetString(2) + ", L_EMAIL:" + myReader.GetString(3) + ", L_PASSWORD:" + myReader.GetString(4) + ", L_PHONE:" + myReader.GetString(5) + ", L_USERNAME:" + myReader.GetString(6) + "\r\n";
+                isdisplay.Text +=  "\r\n" + "L_id:" + myReader.GetString(0) + ", U_ID:" + myReader.GetString(1) + ", WEB_ID:" + myReader.GetString(2) + ", L_EMAIL:" + myReader.GetString(3) + ", L_PASSWORD:" + myReader.GetString(4) + ", L_PHONE:" + myReader.GetString(5) + ", L_USERNAME:" + myReader.GetString(6) + "\r\n";
 
 
             }
