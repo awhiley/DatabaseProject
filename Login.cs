@@ -15,7 +15,7 @@ namespace DatabaseProject
             connetionString = "server=localhost;database=PasswordManager;user=root;password=password1";
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
-            MessageBox.Show("Connection Open  !");
+          //  MessageBox.Show("Connection Open  !");
         }
 
         private void GreetingText_Click(object sender, EventArgs e)
